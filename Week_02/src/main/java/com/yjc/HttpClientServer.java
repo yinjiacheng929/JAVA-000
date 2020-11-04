@@ -27,7 +27,7 @@ public class HttpClientServer {
                 final Socket socket = serverSocket.accept();
                 executorService.execute(() -> {
                     service(socket);
-                    service();
+                    service();//
                 });
             } catch (IOException e) {
                 e.printStackTrace();
