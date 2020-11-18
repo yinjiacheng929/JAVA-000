@@ -6,6 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Week_05" />
+        <module name="Week_04" />
+        <module name="Week_03" />
         <module name="Week_02" />
       </profile>
     </annotationProcessing>
@@ -13,6 +16,14 @@
       <module name="untitled" target="1.5" />
       <module name="untitled1" target="1.5" />
       <module name="Week_02" target="8" />
+      <module name="Week_03" target="8" />
+      <module name="Week_04" target="8" />
+      <module name="Week_05" target="6" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Week_05" options="" />
+    </option>
   </component>
 </project>
