@@ -1,0 +1,21 @@
+server:
+  port: 8088
+
+spring:
+  datasource:
+    master:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/test?useSSL=false&serverTimezone=GMT%2B8&characterEncoding=UTF-8
+      username: root
+      password: 150405
+    slave:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/test_bak?useSSL=false&serverTimezone=GMT%2B8&characterEncoding=UTF-8
+      username: root
+      password: 150405
+
+#mybaits配置
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
