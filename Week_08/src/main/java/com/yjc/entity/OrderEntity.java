@@ -8,4 +8,8 @@ public class OrderEntity {
     private String orderNumber;
     private String payPrice;
 
+    public OrderEntity(String id, String orderNumber) {
+        this.id = id;
+        this.orderNumber = orderNumber;
+    }
 }

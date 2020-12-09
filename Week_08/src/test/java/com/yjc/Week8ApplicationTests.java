@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
-import week0802.week0802.models.Order;
-
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -35,8 +33,8 @@ class Week8ApplicationTests {
     @Transactional
     public void test() throws SQLException {
         // 通过sharding插入数据，通过sharding自己的日志输出看出插入不同的数据库和表
-        orderMapper.insertOne(new Order(1L, 1L));
-        orderMapper.insertOne(new Order(2L, 2L));
+        orderMapper.insertOne(new OrderEntity(1, 1));
+        orderMapper.insertOne(new OrderEntity(2, 2));
 
         // 只传user_id，看到单库进行了所有表的查询
         Map<String, Object> condition = new HashMap<>(1);
@@ -48,9 +46,9 @@ class Week8ApplicationTests {
             System.out.println(item.toString());
         }
 
-        // 只传order_id，看到进行了多库单表的查询
+        // 只传id，看到进行了多库单表的查询
         condition = new HashMap<>(1);
-        condition.put("order_id", 1L);
+        condition.put("id", 1L);
         orderQuery = orderMapper.query(condition);
         assert orderQuery.size() == 1;
         for (Map item : orderQuery) {
@@ -59,8 +57,8 @@ class Week8ApplicationTests {
 
         // 传入order_id和user_id，看到进行单库单表的查询
         condition = new HashMap<>(2);
-        condition.put("order_id", 2L);
-        condition.put("user_id", 2L);
+        condition.put("id", 2L);
+        condition.put("orderNumber", 2L);
         orderQuery = orderMapper.query(condition);
         assert orderQuery.size() == 1;
         for (Map item : orderQuery) {
