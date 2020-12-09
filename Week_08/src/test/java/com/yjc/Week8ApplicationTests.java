@@ -40,7 +40,7 @@ class Week8ApplicationTests {
 
         // 只传user_id，看到单库进行了所有表的查询
         Map<String, Object> condition = new HashMap<>(1);
-        condition.put("user_id", 1L);
+        condition.put("id", 1);
 
         List<Map<String, Object>> orderQuery = orderMapper.query(condition);
         assert orderQuery.size() == 1;
